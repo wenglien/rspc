@@ -334,3 +334,9 @@ p{
     text-align: center;
     color: #fff;
 }
+.header-col{
+    flex-basis: 31%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+}
