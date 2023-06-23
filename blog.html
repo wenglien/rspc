@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道教瑤池皇母同心會-桃園宇宙旡道場</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<section class="sub-header">
+    <nav>
+        <a href="index.html"><img src="images/tisf.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">主頁面</a></li>
+                <li><a href="about.html">簡介</a></li>
+                <li><a href="course.html">活動</a></li>
+                <li><a href="blog.html">道場資訊</a></li>
+                <li><a href="contact.html">聯絡管道</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <h1>活動</h1>
+</section>
+
+
+<section class="facilities">
+    <h1>開宮宗旨</h1>
+    <p>我們也致力於推廣皇母宗教文化.</p>
+
+    <div class="row">
+        <div class="facilities-col">
+            <img src="images/library.png">
+            <h3>太上皇母娘娘大天尊 聖訓</h3>
+            <p></p>
+            </div>
+            <div class="facilities-col">
+                <img src="images/cafeteria.png">
+                <h3>各大修行宗旨</h3>
+                <p></p>
+            </div> 
+            <div class="facilities-col">
+                    <img src="images/basketball.png">
+                    <h3>三綱五常的奉行</h3>
+                    <p></p>
+
+                   <div class="comment-box">
+
+                    <h3>留言區</h3>
+
+                    <form class="comment-form">
+                        <input type="text" placeholder="輸入姓名">
+                        <input type="email" placeholder="輸入郵件信箱">
+                        <textarea rows="5" placeholder="輸入您的問題">
+                        </textarea>
+                        <button type="submit" class="hero-btn123 red-btn">發布留言</button>
+                    </form>
+                   </div> 
+
+            </div>
+        </div>
+    
+
+</section>
+
+
+
+
+
+
+<section class="footer">
+    <h4> About us</h4>
+    <p>check out to know more about us, we are still building this website</p>
+    <h3>Ian wang</h3>
+    <div class="icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+    <p>made with <i class="fa fa-heart-o"></i>by ian wang</p>
+
+
+</section>
+
+<!------Javascript  for menu----->   
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+</script>
+    
+</html>
+</body>

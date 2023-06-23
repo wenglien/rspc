@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道教瑤池皇母同心會-桃園宇宙旡道場</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<section class="sub-header">
+    <nav>
+        <a href="index.html"><img src="images/tisf.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">主頁面</a></li>
+                <li><a href="about.html">簡介</a></li>
+                <li><a href="course.html">活動</a></li>
+                <li><a href="blog.html">道場資訊</a></li>
+                <li><a href="contact.html">聯絡管道</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <h1>聯絡管道</h1>
+</section>
+
+
+<section class="location">
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.255122746619!2d121.29440291085508!3d25.025414677729465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681fc8007d4483%3A0xcef1428641420540!2zMzMw5qGD5ZyS5biC5qGD5ZyS5Y2A5ZCM5a6J6KGXNjcw6Jmf!5e0!3m2!1szh-TW!2stw!4v1687506780635!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+</section>
+
+<section class="contact-us">
+
+    <div class="row">
+        <div class="contact-col">
+            <div>
+                <i class="fa fa-home"></i>
+                <span>
+                    <h5>桃園市桃園區同安街670號</h5>
+                    <p>臺灣, 桃園</p>
+                </span>
+        </div>
+    </div>
+    <div>
+        <i class="fa fa-phone"></i>
+        <span>
+            <h5>0966003288</h5>
+            <p>尚未開放撥打</p>
+        </span>
+    </div>
+    <div>
+        <i class="fa fa-envelope-o"></i>
+        <span>
+            <h5>ian921030@gmail.com</h5>
+            <p>寄信到這個郵箱</p>
+        </span>
+    </div>
+    </div>
+<div class="contact-col">
+
+    <form action="form-handler.php" method="post"> 
+        <input type="text" name="name" placeholder="輸入姓名" required>
+        <input type="email" name="email" placeholder="輸入郵件帳號" required>
+        <input type="text" name="subject" placeholder="輸入標題" required>
+        <textarea rows="8" name="message" placeholder="內容" required></textarea>
+        <button type="submit" class="hero-btn123 red-btn">確認送出</button>
+    </form>
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="footer">
+    <h4> About us</h4>
+    <p>check out to know more about us, we are still building this website</p>
+    <h3>Ian wang</h3>
+    <div class="icons">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-linkedin"></i>
+    </div>
+    <p>made with <i class="fa fa-heart-o"></i>by ian wang</p>
+
+
+</section>
+
+
+
+
+
+
+ <!------Javascript  for menu----->   
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+</script>
+    
+</html>
+</body>
