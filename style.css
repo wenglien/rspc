@@ -22,7 +22,7 @@ nav{
 
 }
 nav img{
-    width: 300px;
+    width: 155px;
 
 }
 .nav-links{
@@ -117,12 +117,13 @@ nav .fa{
         display:block;
         color:#fff;
         margin: 10px;
-        font-size: 22px;
+        font-size: 20px;
         cursor: pointer;
 
     }
     .nav-links ul{
-        padding: 30px;
+        padding: 5px;
+        font-size: 5px;
     }
 }
 .course{
