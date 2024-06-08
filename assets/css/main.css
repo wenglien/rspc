@@ -4974,6 +4974,7 @@ input, select, textarea {
   }
   .gallery img{
 	width: 100%;
+	border-radius: 10px;
 
   }
 	
