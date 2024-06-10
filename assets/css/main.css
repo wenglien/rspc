@@ -2590,7 +2590,7 @@ input, select, textarea {
 
 	.image {
 		border: 0;
-		border-radius: 4%;
+		border-radius: 5%;
 		display: inline-block;
 		position: relative;
 	}
@@ -2621,42 +2621,42 @@ input, select, textarea {
 
 		.image.fit {
 			display: block;
-			border-radius: 4%;
+			border-radius: 5%;
 			margin: 2.5rem 0;
 			width: 100%;
 		}
 
 			.image.fit:first-child {
-				border-radius: 4%;
+				border-radius: 5%;
 				margin-top: 0;
 			}
 
 			.image.fit img {
-				border-radius: 4%;
+				border-radius: 5%;
 				width: 100%;
 			}
 
 		.image.main {
 			display: block;
-			border-radius: 4%;
+			border-radius: 5%;
 			margin: 4rem 0;
 			width: 100%;
 		}
 
 			.image.main:first-child {
-				border-radius: 4%;
+				border-radius: 5%;
 				margin-top: 0;
 			}
 
 			.image.main img {
-				border-radius: 4%;
+				border-radius: 5%;
 				width: 100%;
 			}
 
 		@media screen and (max-width: 736px) {
 
 			.image.fit {
-				border-radius: 4%;
+				border-radius: 5%;
 				margin: 2rem 0;
 			}
 
@@ -4974,7 +4974,7 @@ input, select, textarea {
   }
   .gallery img{
 	width: 100%;
-	border-radius: 10px;
+	border-radius: 14px;
 
   }
 	
