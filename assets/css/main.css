@@ -4977,4 +4977,9 @@ input, select, textarea {
 	border-radius: 25px;
 
   }
+  .gallery video{
+	width: 100%;
+	border-radius: 25px;
+
+  }
 	
