@@ -3413,7 +3413,7 @@ input, select, textarea {
 
 			#intro {
 				padding: 3rem 2rem 15rem 2rem ;
-				min-height: 88vh;
+				min-height: 100vh;
 			}
 
 				#intro h1 {
