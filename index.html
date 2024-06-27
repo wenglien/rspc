@@ -13,64 +13,7 @@
 		<link rel="bookmark" href="images/favicon.ico"/>
 		<link rel="icon" href="images/favicon.ico">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    		<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let autoScrollTimer;
-            let isAutoScrolling = false;
 
-            // 设置自动滚动
-            autoScrollTimer = setTimeout(function() {
-                var mainContent = document.getElementById('main');
-                if (mainContent) {
-                    isAutoScrolling = true;
-                    smoothScrollTo(mainContent.offsetTop, 2000, function() {
-                        isAutoScrolling = false;
-                    });
-                }
-            }, 3000); // 3000毫秒 = 3秒
-
-            // 允许用户随时中断自动滚动
-            window.addEventListener('wheel', stopAutoScroll, { passive: true });
-            window.addEventListener('touchstart', stopAutoScroll, { passive: true });
-
-            function stopAutoScroll() {
-                if (isAutoScrolling) {
-                    isAutoScrolling = false;
-                    clearTimeout(autoScrollTimer);
-                    window.scrollTo(window.pageXOffset, window.pageYOffset);
-                }
-            }
-
-            function smoothScrollTo(targetY, duration, callback) {
-                const startY = window.pageYOffset;
-                const difference = targetY - startY;
-                const startTime = performance.now();
-
-                function step() {
-                    if (!isAutoScrolling) {
-                        if (callback) callback();
-                        return;
-                    }
-
-                    const currentTime = performance.now();
-                    const progress = Math.min((currentTime - startTime) / duration, 1);
-                    window.scrollTo(0, startY + difference * easeInOutCubic(progress));
-
-                    if (progress < 1) {
-                        requestAnimationFrame(step);
-                    } else {
-                        if (callback) callback();
-                    }
-                }
-
-                function easeInOutCubic(t) {
-                    return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-                }
-
-                requestAnimationFrame(step);
-            }
-        });
-    </script>
 	</head>
 	<body class="is-preload">
 
@@ -110,6 +53,39 @@
 
 				<!-- Main -->
 					<div id="main">
+					<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let autoScrollTimer;
+				let isAutoScrolling = false;
+	
+				// 设置自动滚动
+				autoScrollTimer = setTimeout(function() {
+					var mainContent = document.getElementById('main');
+					if (mainContent) {
+						isAutoScrolling = true;
+						window.scrollTo({
+							top: mainContent.offsetTop,
+							behavior: 'smooth'
+						});
+						setTimeout(function() {
+							isAutoScrolling = false;
+						}, 2000); // 假设滚动动画持续2秒
+					}
+				}, 3000); // 3000毫秒 = 3秒
+	
+				// 允许用户随时中断自动滚动
+				window.addEventListener('wheel', stopAutoScroll, { passive: true });
+				window.addEventListener('touchstart', stopAutoScroll, { passive: true });
+	
+				function stopAutoScroll() {
+					if (isAutoScrolling) {
+						isAutoScrolling = false;
+						clearTimeout(autoScrollTimer);
+						window.scrollTo(window.pageXOffset, window.pageYOffset);
+					}
+				}
+			});
+					</script>
 
 						<!-- Featured Post -->
 							<article class="post featured">
