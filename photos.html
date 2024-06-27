@@ -8,37 +8,43 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" herf="assets/css/lightbox.css">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // 設置滾動的速度和間隔時間
-      var scrollSpeed = 2; // 每次滾動的像素數
-      var scrollInterval = 20; // 滾動的時間間隔（毫秒）
-  
-      // 獲取頁面總高度
-      var documentHeight = document.body.scrollHeight;
-  
-      // 進行滾動的函數
-      var autoScroll = function() {
-        // 當前滾動的位置
-        var currentScroll = window.scrollY || document.documentElement.scrollTop;
-  
-        // 如果未滾動到頁面底部，則繼續滾動
-        if (currentScroll + window.innerHeight < documentHeight) {
-          window.scrollBy(0, scrollSpeed);
-          // 設置下一次滾動
-          setTimeout(autoScroll, scrollInterval);
-        }
-      };
-  
-      // 開始滾動
-      setTimeout(autoScroll, scrollInterval);
-  
-      // 監聽用戶滾動事件，停止自動滾動
-      window.addEventListener('scroll', function() {
-        clearTimeout(autoScroll);
-      });
-    });
-  </script>
+<!-- 自動滾動腳本 -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 設置滾動的速度和間隔時間
+    var scrollSpeed = 2; // 每次滾動的像素數
+    var scrollInterval = 20; // 滾動的時間間隔（毫秒）
+
+    // 用於保存滾動的計時器ID
+    var scrollTimer;
+
+    // 獲取頁面總高度
+    var documentHeight = document.body.scrollHeight;
+
+    // 進行滾動的函數
+    var autoScroll = function() {
+      // 當前滾動的位置
+      var currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+      // 如果未滾動到頁面底部，則繼續滾動
+      if (currentScroll + window.innerHeight < documentHeight) {
+        window.scrollBy(0, scrollSpeed);
+        // 設置下一次滾動
+        scrollTimer = setTimeout(autoScroll, scrollInterval);
+      }
+    };
+
+    // 開始滾動
+    scrollTimer = setTimeout(autoScroll, scrollInterval);
+
+    // 監聽用戶滾動事件，停止自動滾動
+    window.addEventListener('scroll', function() {
+      // 清除滾動的計時器
+      clearTimeout(scrollTimer);
+    }, { once: true }); // 使用 { once: true } 保證這個事件處理器只執行一次
+  });
+</script>
+
 	</head>
 	<body class="is-preload">
 
