@@ -13,6 +13,39 @@
 		<link rel="bookmark" href="images/favicon.ico"/>
 		<link rel="icon" href="images/favicon.ico">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+				<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				let autoScrollTimer;
+				let isAutoScrolling = false;
+	
+				// 设置自动滚动
+				autoScrollTimer = setTimeout(function() {
+					var mainContent = document.getElementById('main');
+					if (mainContent) {
+						isAutoScrolling = true;
+						window.scrollTo({
+							top: mainContent.offsetTop,
+							behavior: 'smooth'
+						});
+						setTimeout(function() {
+							isAutoScrolling = false;
+						}, 2000); // 假设滚动动画持续2秒
+					}
+				}, 3000); // 3000毫秒 = 3秒
+	
+				// 允许用户随时中断自动滚动
+				window.addEventListener('wheel', stopAutoScroll, { passive: true });
+				window.addEventListener('touchstart', stopAutoScroll, { passive: true });
+	
+				function stopAutoScroll() {
+					if (isAutoScrolling) {
+						isAutoScrolling = false;
+						clearTimeout(autoScrollTimer);
+						window.scrollTo(window.pageXOffset, window.pageYOffset);
+					}
+				}
+			});
+		</script>
 	</head>
 	<body class="is-preload">
 
