@@ -3332,6 +3332,65 @@ input, select, textarea {
 			font-size: 5rem;
 			line-height: 1;
 		}
+		@keyframes slideInFromLeft {
+			from {
+				opacity: 0;
+				transform: translateX(-100%);
+			}
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+		
+		@keyframes slideInFromRight {
+			from {
+				opacity: 0;
+				transform: translateX(100%);
+			}
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+		
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+		
+		.animated-title {
+			text-align: center;
+			overflow: hidden;
+		}
+		
+		.title-part-1, .title-part-2 {
+			opacity: 0; /* Start with the text invisible */
+			white-space: nowrap; /* Prevent line breaks */
+		}
+		
+		.title-part-1 {
+			animation: slideInFromLeft 1.5s ease-out forwards;
+		}
+		
+		.title-part-2 {
+			animation: slideInFromRight 1.5s ease-out forwards;
+		}
+		
+		.subtitle {
+			opacity: 0;
+			animation: fadeIn 1s ease-out forwards;
+			animation-delay: 2s; /* Adjust this value to control when the subtitle appears */
+		}
+		
+		.title-part-1:hover, .title-part-2:hover {
+			transform: scale(1.05);
+			transition: transform 0.3s ease;
+		}
 
 		#intro p {
 			font-size: 1.25rem;
