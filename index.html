@@ -58,7 +58,6 @@
             let autoScrollTimer;
             let isAutoScrolling = false;
 
-            // 设置自动滚动
             autoScrollTimer = setTimeout(function() {
                 var mainContent = document.getElementById('main');
                 if (mainContent) {
@@ -67,9 +66,8 @@
                         isAutoScrolling = false;
                     });
                 }
-            }, 3000); // 3000毫秒 = 3秒
+            }, 4000); // 
 
-            // 允许用户随时中断自动滚动
             window.addEventListener('wheel', stopAutoScroll, { passive: true });
             window.addEventListener('touchstart', stopAutoScroll, { passive: true });
 
