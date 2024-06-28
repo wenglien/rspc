@@ -8,50 +8,7 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" herf="assets/css/lightbox.css">
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-<!-- 自動滾動腳本 -->
-<!-- 自動滾動腳本 -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // 設置滾動的速度和間隔時間
-    var scrollSpeed = 2; // 每次滾動的像素數
-    var scrollInterval = 20; // 滾動的時間間隔（毫秒）
 
-    // 用於保存滾動的計時器ID
-    var scrollTimer;
-    var isAutoScrolling = true; // 用於標誌是否在自動滾動
-
-    // 獲取頁面總高度
-    var documentHeight = document.body.scrollHeight;
-
-    // 進行滾動的函數
-    var autoScroll = function() {
-      // 當前滾動的位置
-      var currentScroll = window.scrollY || document.documentElement.scrollTop;
-
-      // 如果未滾動到頁面底部，則繼續滾動
-      if (currentScroll + window.innerHeight < documentHeight && isAutoScrolling) {
-        window.scrollBy(0, scrollSpeed);
-        // 設置下一次滾動
-        scrollTimer = setTimeout(autoScroll, scrollInterval);
-      }
-    };
-
-    // 開始滾動
-    scrollTimer = setTimeout(autoScroll, scrollInterval);
-
-    // 停止自動滾動的函數
-    var stopAutoScroll = function() {
-      if (isAutoScrolling) {
-        isAutoScrolling = false; // 停止自動滾動
-        clearTimeout(scrollTimer); // 清除滾動的計時器
-      }
-    };
-
-    // 監聽用戶滾動事件，停止自動滾動
-    window.addEventListener('scroll', stopAutoScroll);
-    window.addEventListener('touchstart', stopAutoScroll); // 針對手機設備
-  });
-</script>
 
 
 	</head>
