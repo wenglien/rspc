@@ -9,7 +9,7 @@
         <link rel="stylesheet" herf="assets/css/lightbox.css">
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 <!-- 自動滾動腳本 -->
-	<script>
+<script>
   document.addEventListener("DOMContentLoaded", function() {
     // 設置滾動的速度和間隔時間
     var scrollSpeed = 2; // 每次滾動的像素數
@@ -38,15 +38,20 @@
     // 開始滾動
     scrollTimer = setTimeout(autoScroll, scrollInterval);
 
-    // 監聽用戶滾動事件，停止自動滾動
-    window.addEventListener('scroll', function() {
+    // 停止自動滾動的函數
+    var stopAutoScroll = function() {
       if (isAutoScrolling) {
         isAutoScrolling = false; // 停止自動滾動
         clearTimeout(scrollTimer); // 清除滾動的計時器
       }
-    });
+    };
+
+    // 監聽用戶滾動事件，停止自動滾動
+    window.addEventListener('scroll', stopAutoScroll);
+    window.addEventListener('touchstart', stopAutoScroll); // 針對手機設備
   });
-	</script>
+</script>
+
 
 	</head>
 	<body class="is-preload">
