@@ -6,7 +6,298 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/theme.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* 神尊介紹區塊樣式 */
+			.post {
+				background: rgba(255, 255, 255, 0.95);
+				border-radius: 15px;
+				padding: 2em;
+				margin: 2em 0;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+				opacity: 0;
+				transform: translateY(20px);
+				animation: fadeInUp 0.8s ease forwards;
+			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* 標題樣式 */
+			.major h3 {
+				color: #2c3e50;
+				font-size: 2.2em;
+				margin-bottom: 1em;
+				text-align: center;
+				position: relative;
+				padding-bottom: 0.5em;
+				opacity: 0;
+				animation: fadeIn 1s ease 0.3s forwards;
+			}
+
+			@keyframes fadeIn {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+
+			.major h3:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 0;
+				height: 3px;
+				background: linear-gradient(90deg, #3498db, #2ecc71);
+				animation: expandWidth 1s ease 0.8s forwards;
+			}
+
+			@keyframes expandWidth {
+				from { width: 0; }
+				to { width: 100px; }
+			}
+
+			/* 神尊列表樣式 */
+			dl {
+				margin: 2em 0;
+			}
+
+			dt {
+				font-size: 1.4em;
+				color: #2c3e50;
+				margin: 1.5em 0 0.5em;
+				padding: 0.5em 1em;
+				background: linear-gradient(90deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1));
+				border-radius: 8px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				opacity: 0;
+				transform: translateX(-20px);
+				animation: slideIn 0.5s ease forwards;
+			}
+
+			@keyframes slideIn {
+				from {
+					opacity: 0;
+					transform: translateX(-20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			dt:hover {
+				transform: translateX(10px) scale(1.02);
+				background: linear-gradient(90deg, rgba(52, 152, 219, 0.2), rgba(46, 204, 113, 0.2));
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+			}
+
+			dd {
+				margin: 1em 0 2em;
+				padding: 1em;
+				background: #f8f9fa;
+				border-radius: 8px;
+				line-height: 1.8;
+				transition: all 0.3s ease;
+				opacity: 0;
+				transform: translateY(10px);
+				animation: fadeInUp 0.5s ease forwards;
+			}
+
+			dd p {
+				margin: 1em 0;
+				color: #34495e;
+				transition: all 0.3s ease;
+			}
+
+			dd p:hover {
+				transform: translateX(5px);
+				color: #2c3e50;
+			}
+
+			/* 圖片樣式 */
+			.image.fit {
+				opacity: 0;
+				transform: scale(0.95);
+				animation: scaleIn 0.5s ease forwards;
+				margin: 2em 0;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+			}
+
+			@keyframes scaleIn {
+				from {
+					opacity: 0;
+					transform: scale(0.95);
+				}
+				to {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+
+			.image.fit img {
+				transition: all 0.3s ease;
+				width: 100%;
+				height: auto;
+			}
+
+			.image.fit:hover img {
+				transform: scale(1.05);
+			}
+
+			/* 三清道祖圖片容器樣式 */
+			.bob-container {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				margin: 2em 0;
+			}
+
+			.bob-row {
+				display: flex;
+				justify-content: center;
+				gap: 2em;
+				max-width: 900px;
+				width: 100%;
+				margin: 0 auto;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			.bob-3item {
+				flex: 1;
+				text-align: center;
+				opacity: 0;
+				transform: translateY(20px);
+				animation: fadeInUp 0.5s ease forwards;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.bob-3item img {
+				width: 100%;
+				height: 300px;
+				object-fit: cover;
+				border-radius: 8px;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+				transition: all 0.3s ease;
+				margin-bottom: 1em;
+			}
+
+			.bob-3item:hover img {
+				transform: scale(1.05);
+				box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+			}
+
+			.bob-3item div {
+				color: #2c3e50;
+				font-size: 1.2em;
+				font-weight: bold;
+				margin-top: 0.5em;
+				height: auto;
+			}
+
+			/* 分頁動畫 */
+			.pagination {
+				opacity: 0;
+				animation: fadeIn 0.5s ease 1s forwards;
+			}
+
+			.pagination .page {
+				transition: all 0.3s ease;
+			}
+
+			.pagination .page:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+			}
+
+			/* 響應式設計 */
+			@media screen and (max-width: 736px) {
+				.post {
+					padding: 1em;
+					margin: 1em 0;
+				}
+
+				.major h3 {
+					font-size: 1.8em;
+				}
+
+				dt {
+					font-size: 1.2em;
+				}
+
+				.bob-row {
+					flex-direction: column;
+					gap: 1em;
+				}
+
+				.bob-3item {
+					margin-bottom: 2em;
+				}
+
+				.bob-3item img {
+					height: 250px;
+				}
+			}
+
+			@media screen and (max-width: 1200px) {
+				.bob-row {
+					max-width: 100%;
+					gap: 1em;
+				}
+				.bob-3item img {
+					height: 220px;
+				}
+			}
+		</style>
+		<script>
+			// 滾動顯示動畫
+			window.addEventListener('scroll', function() {
+				const elements = document.querySelectorAll('.image.fit, .bob-3item');
+				elements.forEach(element => {
+					const windowHeight = window.innerHeight;
+					const elementTop = element.getBoundingClientRect().top;
+					const elementVisible = 150;
+					
+					if (elementTop < windowHeight - elementVisible) {
+						element.style.opacity = '1';
+						element.style.transform = 'scale(1)';
+					}
+				});
+			});
+
+			// 為每個神尊介紹添加延遲動畫
+			document.addEventListener('DOMContentLoaded', function() {
+				const dts = document.querySelectorAll('dt');
+				dts.forEach((dt, index) => {
+					dt.style.animationDelay = `${index * 0.1}s`;
+				});
+
+				const dds = document.querySelectorAll('dd');
+				dds.forEach((dd, index) => {
+					dd.style.animationDelay = `${index * 0.1 + 0.2}s`;
+				});
+
+				const images = document.querySelectorAll('.image.fit');
+				images.forEach((image, index) => {
+					image.style.animationDelay = `${index * 0.1 + 0.3}s`;
+				});
+			});
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -46,23 +337,23 @@
 									<p></p>
                                     </dd>
                                     <dt>三清道祖</dt>
-                                    <div class="bob-container"> 
-                                        <div class="bob-row">
-                                          <div class="bob-3item">
-                                            <img src="images/2.jpg">
-                                            <div style="height:43px;">道德天尊</div>
-                                          </div>
-                                          <div class="bob-3item">
-                                            <img src="images/3.jpg">
-                                            <div style="height:43px;">元始天尊</div>
-                                          </div>
-                                          <div class="bob-3item">
-                                            <img src="images/4.jpg">
-                                            <div style="height:43px;">靈寶天尊</div>
-                                          </div>
-                                        </div>
-                                      </div>
                                     <dd>
+                                        <div class="bob-container"> 
+                                            <div class="bob-row">
+                                                <div class="bob-3item">
+                                                    <img src="images/2.jpg" alt="道德天尊">
+                                                    <div>道德天尊</div>
+                                                </div>
+                                                <div class="bob-3item">
+                                                    <img src="images/3.jpg" alt="元始天尊">
+                                                    <div>元始天尊</div>
+                                                </div>
+                                                <div class="bob-3item">
+                                                    <img src="images/4.jpg" alt="靈寶天尊">
+                                                    <div>靈寶天尊</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p>三清是道教哲理「三位三體」的象徵。道教教內有「一炁化三清」之說。《道德經》說：「道生一，一生二，二生三，三生萬物。」意思是道化生為混沌元氣，由混沌元氣化生為陰、陽二氣，再由陰陽二氣衍化為天、地、人三才，由此產生天下的萬事萬物，一化為三，三本於一，因此，三清尊神就是「道」的人格化。三清，又作道祖，即玉清、上清、太清，原本指「三清境」：太清境大赤天，上清境禹餘天，玉清境清微天，位於道教天界「種民天」之上。後來指稱三清尊神，即玉清之主元始天尊、上清之主靈寶天尊、太清之主道德天尊。這三清尊神乃是道教中，世界創造之初的大神，故號稱三清道祖。</p>
                                     </dd>  
                                     <dt>瑤池金母娘娘</dt>

@@ -6,7 +6,232 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/theme.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.enhanced-section {
+				background: rgba(255, 255, 255, 0.95);
+				border-radius: 15px;
+				padding: 2em;
+				margin: 2em 0;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+				opacity: 0;
+				transform: translateY(20px);
+				animation: fadeInUp 0.8s ease forwards;
+			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.enhanced-title {
+				color: #2c3e50;
+				font-size: 2.2em;
+				margin-bottom: 1em;
+				text-align: center;
+				position: relative;
+				padding-bottom: 0.5em;
+				opacity: 0;
+				animation: fadeIn 1s ease 0.3s forwards;
+			}
+
+			@keyframes fadeIn {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+
+			.enhanced-title:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 0;
+				height: 3px;
+				background: linear-gradient(90deg, #3498db, #2ecc71);
+				animation: expandWidth 1s ease 0.8s forwards;
+			}
+
+			@keyframes expandWidth {
+				from { width: 0; }
+				to { width: 100px; }
+			}
+
+			.enhanced-dl {
+				margin: 2em 0;
+			}
+
+			.enhanced-dt {
+				font-size: 1.4em;
+				color: #2c3e50;
+				margin: 1.5em 0 0.5em;
+				padding: 0.5em 1em;
+				background: linear-gradient(90deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1));
+				border-radius: 8px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				opacity: 0;
+				transform: translateX(-20px);
+				animation: slideIn 0.5s ease forwards;
+			}
+
+			@keyframes slideIn {
+				from {
+					opacity: 0;
+					transform: translateX(-20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			.enhanced-dt:hover {
+				transform: translateX(10px) scale(1.02);
+				background: linear-gradient(90deg, rgba(52, 152, 219, 0.2), rgba(46, 204, 113, 0.2));
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+			}
+
+			.enhanced-dd {
+				margin: 1em 0 2em;
+				padding: 1em;
+				background: #f8f9fa;
+				border-radius: 8px;
+				line-height: 1.8;
+				transition: all 0.3s ease;
+				opacity: 0;
+				transform: translateY(10px);
+				animation: fadeInUp 0.5s ease forwards;
+			}
+
+			.enhanced-dd p {
+				margin: 1em 0;
+				color: #34495e;
+				transition: all 0.3s ease;
+			}
+
+			.enhanced-dd p:hover {
+				transform: translateX(5px);
+				color: #2c3e50;
+			}
+
+			.enhanced-videobox {
+				position: relative;
+				padding-bottom: 56.25%;
+				height: 0;
+				overflow: hidden;
+				max-width: 100%;
+				margin: 2em 0;
+				border-radius: 12px;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+				opacity: 0;
+				transform: scale(0.95);
+				animation: scaleIn 0.5s ease forwards;
+			}
+
+			@keyframes scaleIn {
+				from {
+					opacity: 0;
+					transform: scale(0.95);
+				}
+				to {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+
+			.enhanced-videobox iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 12px;
+				transition: all 0.3s ease;
+			}
+
+			.enhanced-videobox:hover iframe {
+				transform: scale(1.02);
+				box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+			}
+
+			/* 分頁動畫 */
+			.pagination {
+				opacity: 0;
+				animation: fadeIn 0.5s ease 1s forwards;
+			}
+
+			.pagination .page {
+				transition: all 0.3s ease;
+			}
+
+			.pagination .page:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+			}
+
+			/* 滾動顯示動畫 */
+			.reveal {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: all 0.8s ease;
+			}
+
+			.reveal.active {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			@media screen and (max-width: 736px) {
+				.enhanced-section {
+					padding: 1em;
+					margin: 1em 0;
+				}
+
+				.enhanced-title {
+					font-size: 1.8em;
+				}
+
+				.enhanced-dt {
+					font-size: 1.2em;
+				}
+			}
+		</style>
+		<script>
+			// 滾動顯示動畫
+			window.addEventListener('scroll', function() {
+				const reveals = document.querySelectorAll('.reveal');
+				reveals.forEach(element => {
+					const windowHeight = window.innerHeight;
+					const elementTop = element.getBoundingClientRect().top;
+					const elementVisible = 150;
+					
+					if (elementTop < windowHeight - elementVisible) {
+						element.classList.add('active');
+					}
+				});
+			});
+
+			// 為每個問題添加延遲動畫
+			document.addEventListener('DOMContentLoaded', function() {
+				const dts = document.querySelectorAll('.enhanced-dt');
+				dts.forEach((dt, index) => {
+					dt.style.animationDelay = `${index * 0.1}s`;
+				});
+
+				const dds = document.querySelectorAll('.enhanced-dd');
+				dds.forEach((dd, index) => {
+					dd.style.animationDelay = `${index * 0.1 + 0.2}s`;
+				});
+			});
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -35,14 +260,11 @@
                 <div id="main">
 
                     <!-- Post -->
-                        <section class="post">
+                        <section class="post enhanced-section">
                             <header class="major">
                                 <span class="date"></span>
-                                <h3>常見的修道疑問</h3>
-                                <dl>
-
-                                        
-                                    </dd>
+                                <h3 class="enhanced-title">常見的修道疑問</h3>
+                                <dl class="enhanced-dl">
                                     <dt>為何要修皇母真道？</dt>
                                     <dd>
                                         <p>在現今社會.有許多宮廟,道場提供予人修行.修行方式各有不同.在此不便多贅言.既然有多種選擇.為何要皈依﻿皇母﻿門下修道?又有何差異?

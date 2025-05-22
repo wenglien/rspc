@@ -1,0 +1,187 @@
+/* 主題色與字體 */
+:root {
+  --color-primary: #bfa046; /* 金色 */
+  --color-deepblue: #2c3e50;
+  --color-light: #f7f7f7;
+  --color-white: #fff;
+  --color-accent: #e0f7fa;
+  --color-green: #a3d9c9;
+  --color-red: #e57373;
+  --color-shadow: rgba(44, 62, 80, 0.08);
+  --font-main: 'Noto Sans TC', '思源黑體', Arial, sans-serif;
+  --font-title: 'Noto Serif TC', '思源宋體', serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-light);
+  color: var(--color-deepblue);
+  margin: 0;
+  padding: 0;
+}
+
+/* 導覽列 */
+.modern-nav {
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-white) 80%, var(--color-primary) 100%);
+  box-shadow: 0 2px 12px var(--color-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 2em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.modern-nav .logo img {
+  height: 48px;
+}
+.modern-nav ul {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.modern-nav li {
+  font-family: var(--font-title);
+  font-size: 1.1em;
+  color: var(--color-deepblue);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modern-nav li:hover {
+  color: var(--color-primary);
+}
+
+/* Hero 區塊 */
+.hero {
+  background: linear-gradient(120deg, #f7e9c0 0%, #e0f7fa 100%);
+  text-align: center;
+  padding: 4em 1em 3em 1em;
+  border-radius: 0 0 32px 32px;
+  margin-bottom: 2em;
+  box-shadow: 0 4px 24px var(--color-shadow);
+}
+.hero h1 {
+  font-family: var(--font-title);
+  font-size: 2.8em;
+  color: var(--color-primary);
+  margin-bottom: 0.5em;
+  letter-spacing: 0.1em;
+}
+.hero p {
+  font-size: 1.3em;
+  color: var(--color-deepblue);
+  margin-bottom: 1.5em;
+}
+.cta {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 24px;
+  padding: 0.8em 2.2em;
+  font-size: 1.1em;
+  font-family: var(--font-title);
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--color-shadow);
+  transition: background 0.2s, transform 0.2s;
+}
+.cta:hover {
+  background: #a88a3c;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* 卡片設計 */
+.card, .modern-card-bg {
+  background: var(--color-white);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px var(--color-shadow);
+  padding: 2em 1.5em;
+  margin: 1.5em 0;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover, .modern-card-bg:hover {
+  box-shadow: 0 8px 32px rgba(191,160,70,0.18);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* 卡片標題 */
+.card-title {
+  font-family: var(--font-title);
+  font-size: 1.5em;
+  color: var(--color-primary);
+  margin-bottom: 0.7em;
+  letter-spacing: 0.05em;
+}
+
+/* 區塊分隔線 */
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-green));
+  border-radius: 2px;
+  margin: 2em auto;
+}
+
+/* 按鈕 */
+.btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 20px;
+  padding: 0.6em 1.8em;
+  font-size: 1em;
+  font-family: var(--font-title);
+  cursor: pointer;
+  margin: 0.5em 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn:hover {
+  background: #a88a3c;
+  transform: scale(1.04);
+}
+
+/* 圖片卡片 */
+.card-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px var(--color-shadow);
+  margin-bottom: 1em;
+  object-fit: cover;
+}
+
+/* 裝飾宗教元素（可用於分隔、背景） */
+.religious-deco {
+  width: 60px;
+  height: 60px;
+  background: url('/assets/images/deco-lotus.svg') no-repeat center/contain;
+  margin: 0 auto 1em auto;
+  opacity: 0.18;
+}
+
+/* 響應式設計 */
+@media (max-width: 900px) {
+  .modern-nav {
+    flex-direction: column;
+    padding: 0.5em 1em;
+  }
+  .modern-nav ul {
+    gap: 1em;
+  }
+  .hero {
+    padding: 2.5em 0.5em 2em 0.5em;
+  }
+  .card, .modern-card-bg {
+    padding: 1.2em 0.7em;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2em;
+  }
+  .card-title {
+    font-size: 1.1em;
+  }
+} 
